@@ -2,7 +2,6 @@ from datetime import datetime
 
 
 class DeviceSchedule:
-    """Representa um agendamento de ativação para um dispositivo."""
     def __init__(self, device_name: str, scheduled_time: datetime):
         self.device_name = device_name
         self.scheduled_time = scheduled_time

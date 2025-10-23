@@ -3,7 +3,6 @@ from src.energy.DeviceSchedule import DeviceSchedule
 from src.energy.EnergyManagementResult import EnergyManagementResult
 
 class SmartEnergyManagementSystem:
-    """Um sistema para gerenciar inteligentemente o consumo de energia."""
     def manage_energy(
         self,
         current_price: float,

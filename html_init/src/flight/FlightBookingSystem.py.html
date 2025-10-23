@@ -1,9 +1,9 @@
-<html><body><h1>src/flight/FlightBookingSystem.py</h1>Killed 17 out of 55 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 9</h3><pre>--- src/flight/FlightBookingSystem.py
+<html><body><h1>src/flight/FlightBookingSystem.py</h1>Killed 16 out of 55 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 9</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -19,7 +19,7 @@
-         """
-         Processa a reserva ou cancelamento de um voo com base nos parâmetros fornecidos.
-         """
+@@ -14,7 +14,7 @@
+                     reward_points_available: int
+                 ) -> BookingResult:
+ 
 -        final_price = 0.0
 +        final_price = 1.0
          refund_amount = 0.0
@@ -11,10 +11,10 @@
          points_used = False
 </pre><h3>Mutant 10</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -19,7 +19,7 @@
-         """
-         Processa a reserva ou cancelamento de um voo com base nos parâmetros fornecidos.
-         """
+@@ -14,7 +14,7 @@
+                     reward_points_available: int
+                 ) -> BookingResult:
+ 
 -        final_price = 0.0
 +        final_price = None
          refund_amount = 0.0
@@ -22,97 +22,97 @@
          points_used = False
 </pre><h3>Mutant 14</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -21,7 +21,7 @@
-         """
+@@ -16,7 +16,7 @@
+ 
          final_price = 0.0
          refund_amount = 0.0
 -        confirmation = False
 +        confirmation = None
          points_used = False
  
-         # Verifica se há assentos suficientes disponíveis
+         if passengers > available_seats:
 </pre><h3>Mutant 15</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -22,7 +22,7 @@
+@@ -17,7 +17,7 @@
          final_price = 0.0
          refund_amount = 0.0
          confirmation = False
 -        points_used = False
 +        points_used = True
  
-         # Verifica se há assentos suficientes disponíveis
          if passengers > available_seats:
+             return BookingResult(confirmation, final_price, refund_amount, points_used)
 </pre><h3>Mutant 16</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -22,7 +22,7 @@
+@@ -17,7 +17,7 @@
          final_price = 0.0
          refund_amount = 0.0
          confirmation = False
 -        points_used = False
 +        points_used = None
  
-         # Verifica se há assentos suficientes disponíveis
          if passengers > available_seats:
+             return BookingResult(confirmation, final_price, refund_amount, points_used)
 </pre><h3>Mutant 17</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -25,7 +25,7 @@
+@@ -19,7 +19,7 @@
+         confirmation = False
          points_used = False
  
-         # Verifica se há assentos suficientes disponíveis
 -        if passengers > available_seats:
 +        if passengers >= available_seats:
              return BookingResult(confirmation, final_price, refund_amount, points_used)
  
-         # Preço dinâmico com base no índice de vendas e demanda
+         price_factor = (previous_sales / 100.0) * 0.8
 </pre><h3>Mutant 19</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -29,7 +29,7 @@
+@@ -22,7 +22,7 @@
+         if passengers > available_seats:
              return BookingResult(confirmation, final_price, refund_amount, points_used)
  
-         # Preço dinâmico com base no índice de vendas e demanda
 -        price_factor = (previous_sales / 100.0) * 0.8
 +        price_factor = (previous_sales / 101.0) * 0.8
          final_price = current_price * price_factor * passengers
  
-         # Taxa de última hora
+         time_difference = departure_time - booking_time
 </pre><h3>Mutant 20</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -29,7 +29,7 @@
+@@ -22,7 +22,7 @@
+         if passengers > available_seats:
              return BookingResult(confirmation, final_price, refund_amount, points_used)
  
-         # Preço dinâmico com base no índice de vendas e demanda
 -        price_factor = (previous_sales / 100.0) * 0.8
 +        price_factor = (previous_sales / 100.0) / 0.8
          final_price = current_price * price_factor * passengers
  
-         # Taxa de última hora
+         time_difference = departure_time - booking_time
 </pre><h3>Mutant 21</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -29,7 +29,7 @@
+@@ -22,7 +22,7 @@
+         if passengers > available_seats:
              return BookingResult(confirmation, final_price, refund_amount, points_used)
  
-         # Preço dinâmico com base no índice de vendas e demanda
 -        price_factor = (previous_sales / 100.0) * 0.8
 +        price_factor = (previous_sales / 100.0) * 1.8
          final_price = current_price * price_factor * passengers
  
-         # Taxa de última hora
+         time_difference = departure_time - booking_time
 </pre><h3>Mutant 24</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -30,7 +30,7 @@
+@@ -23,7 +23,7 @@
+             return BookingResult(confirmation, final_price, refund_amount, points_used)
  
-         # Preço dinâmico com base no índice de vendas e demanda
          price_factor = (previous_sales / 100.0) * 0.8
 -        final_price = current_price * price_factor * passengers
 +        final_price = current_price * price_factor / passengers
  
-         # Taxa de última hora
          time_difference = departure_time - booking_time
+         hours_to_departure = time_difference.total_seconds() / 3600
 </pre><h3>Mutant 29</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -34,7 +34,7 @@
+@@ -26,7 +26,7 @@
+         final_price = current_price * price_factor * passengers
  
-         # Taxa de última hora
          time_difference = departure_time - booking_time
 -        hours_to_departure = time_difference.total_seconds() / 3600
 +        hours_to_departure = time_difference.total_seconds() / 3601
@@ -121,7 +121,7 @@
              final_price += 100
 </pre><h3>Mutant 31</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -36,7 +36,7 @@
+@@ -28,7 +28,7 @@
          time_difference = departure_time - booking_time
          hours_to_departure = time_difference.total_seconds() / 3600
          
@@ -129,10 +129,10 @@
 +        if hours_to_departure <= 24:
              final_price += 100
  
-         # Desconto para reservas em grupo
+         if passengers > 4:
 </pre><h3>Mutant 32</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -36,7 +36,7 @@
+@@ -28,7 +28,7 @@
          time_difference = departure_time - booking_time
          hours_to_departure = time_difference.total_seconds() / 3600
          
@@ -140,90 +140,90 @@
 +        if hours_to_departure < 25:
              final_price += 100
  
-         # Desconto para reservas em grupo
+         if passengers > 4:
 </pre><h3>Mutant 33</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -37,7 +37,7 @@
+@@ -29,7 +29,7 @@
          hours_to_departure = time_difference.total_seconds() / 3600
          
          if hours_to_departure < 24:
 -            final_price += 100
 +            final_price = 100
  
-         # Desconto para reservas em grupo
          if passengers > 4:
+             final_price *= 0.95
 </pre><h3>Mutant 35</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -37,7 +37,7 @@
+@@ -29,7 +29,7 @@
          hours_to_departure = time_difference.total_seconds() / 3600
          
          if hours_to_departure < 24:
 -            final_price += 100
 +            final_price += 101
  
-         # Desconto para reservas em grupo
          if passengers > 4:
+             final_price *= 0.95
 </pre><h3>Mutant 36</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -40,7 +40,7 @@
+@@ -31,7 +31,7 @@
+         if hours_to_departure < 24:
              final_price += 100
  
-         # Desconto para reservas em grupo
 -        if passengers > 4:
 +        if passengers >= 4:
-             final_price *= 0.95  # 5% de desconto
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
+         if reward_points_available > 0:
 </pre><h3>Mutant 37</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -40,7 +40,7 @@
+@@ -31,7 +31,7 @@
+         if hours_to_departure < 24:
              final_price += 100
  
-         # Desconto para reservas em grupo
 -        if passengers > 4:
 +        if passengers > 5:
-             final_price *= 0.95  # 5% de desconto
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
+         if reward_points_available > 0:
 </pre><h3>Mutant 38</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -41,7 +41,7 @@
+@@ -32,7 +32,7 @@
+             final_price += 100
  
-         # Desconto para reservas em grupo
          if passengers > 4:
--            final_price *= 0.95  # 5% de desconto
-+            final_price = 0.95  # 5% de desconto
+-            final_price *= 0.95
++            final_price = 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
+             final_price -= reward_points_available * 0.01
 </pre><h3>Mutant 39</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -41,7 +41,7 @@
+@@ -32,7 +32,7 @@
+             final_price += 100
  
-         # Desconto para reservas em grupo
          if passengers > 4:
--            final_price *= 0.95  # 5% de desconto
-+            final_price /= 0.95  # 5% de desconto
+-            final_price *= 0.95
++            final_price /= 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
+             final_price -= reward_points_available * 0.01
 </pre><h3>Mutant 40</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -41,7 +41,7 @@
+@@ -32,7 +32,7 @@
+             final_price += 100
  
-         # Desconto para reservas em grupo
          if passengers > 4:
--            final_price *= 0.95  # 5% de desconto
-+            final_price *= 1.95  # 5% de desconto
+-            final_price *= 0.95
++            final_price *= 1.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
+             final_price -= reward_points_available * 0.01
 </pre><h3>Mutant 41</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -44,7 +44,7 @@
-             final_price *= 0.95  # 5% de desconto
+@@ -34,7 +34,7 @@
+         if passengers > 4:
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
 -        if reward_points_available > 0:
 +        if reward_points_available >= 0:
              final_price -= reward_points_available * 0.01
@@ -231,10 +231,10 @@
          
 </pre><h3>Mutant 42</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -44,7 +44,7 @@
-             final_price *= 0.95  # 5% de desconto
+@@ -34,7 +34,7 @@
+         if passengers > 4:
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
 -        if reward_points_available > 0:
 +        if reward_points_available > 1:
              final_price -= reward_points_available * 0.01
@@ -242,97 +242,97 @@
          
 </pre><h3>Mutant 43</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -45,7 +45,7 @@
+@@ -35,7 +35,7 @@
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
 -            final_price -= reward_points_available * 0.01
 +            final_price = reward_points_available * 0.01
              points_used = True
          
-         # Garante que o preço não seja negativo
+         if final_price < 0:
 </pre><h3>Mutant 44</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -45,7 +45,7 @@
+@@ -35,7 +35,7 @@
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
 -            final_price -= reward_points_available * 0.01
 +            final_price += reward_points_available * 0.01
              points_used = True
          
-         # Garante que o preço não seja negativo
+         if final_price < 0:
 </pre><h3>Mutant 45</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -45,7 +45,7 @@
+@@ -35,7 +35,7 @@
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
 -            final_price -= reward_points_available * 0.01
 +            final_price -= reward_points_available / 0.01
              points_used = True
          
-         # Garante que o preço não seja negativo
+         if final_price < 0:
 </pre><h3>Mutant 46</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -45,7 +45,7 @@
+@@ -35,7 +35,7 @@
+             final_price *= 0.95
  
-         # Resgate de pontos de recompensa
          if reward_points_available > 0:
 -            final_price -= reward_points_available * 0.01
 +            final_price -= reward_points_available * 1.01
              points_used = True
          
-         # Garante que o preço não seja negativo
+         if final_price < 0:
 </pre><h3>Mutant 49</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -49,7 +49,7 @@
+@@ -38,7 +38,7 @@
+             final_price -= reward_points_available * 0.01
              points_used = True
          
-         # Garante que o preço não seja negativo
 -        if final_price < 0:
 +        if final_price <= 0:
              final_price = 0
  
-         # Lógica para cancelamentos
+         if is_cancellation:
 </pre><h3>Mutant 50</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -49,7 +49,7 @@
+@@ -38,7 +38,7 @@
+             final_price -= reward_points_available * 0.01
              points_used = True
          
-         # Garante que o preço não seja negativo
 -        if final_price < 0:
 +        if final_price < 1:
              final_price = 0
  
-         # Lógica para cancelamentos
+         if is_cancellation:
 </pre><h3>Mutant 51</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -50,7 +50,7 @@
+@@ -39,7 +39,7 @@
+             points_used = True
          
-         # Garante que o preço não seja negativo
          if final_price < 0:
 -            final_price = 0
 +            final_price = 1
  
-         # Lógica para cancelamentos
          if is_cancellation:
+             if hours_to_departure >= 48:
 </pre><h3>Mutant 52</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -50,7 +50,7 @@
+@@ -39,7 +39,7 @@
+             points_used = True
          
-         # Garante que o preço não seja negativo
          if final_price < 0:
 -            final_price = 0
 +            final_price = None
  
-         # Lógica para cancelamentos
          if is_cancellation:
+             if hours_to_departure >= 48:
 </pre><h3>Mutant 53</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -54,7 +54,7 @@
+@@ -42,7 +42,7 @@
+             final_price = 0
  
-         # Lógica para cancelamentos
          if is_cancellation:
 -            if hours_to_departure >= 48:
 +            if hours_to_departure > 48:
@@ -341,9 +341,9 @@
                  refund_amount = final_price * 0.5
 </pre><h3>Mutant 54</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -54,7 +54,7 @@
+@@ -42,7 +42,7 @@
+             final_price = 0
  
-         # Lógica para cancelamentos
          if is_cancellation:
 -            if hours_to_departure >= 48:
 +            if hours_to_departure >= 49:
@@ -352,7 +352,7 @@
                  refund_amount = final_price * 0.5
 </pre><h3>Mutant 56</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -57,7 +57,7 @@
+@@ -45,7 +45,7 @@
              if hours_to_departure >= 48:
                  refund_amount = final_price
              else:
@@ -363,7 +363,7 @@
              
 </pre><h3>Mutant 57</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -57,7 +57,7 @@
+@@ -45,7 +45,7 @@
              if hours_to_departure >= 48:
                  refund_amount = final_price
              else:
@@ -374,7 +374,7 @@
              
 </pre><h3>Mutant 59</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -59,7 +59,7 @@
+@@ -47,7 +47,7 @@
              else:
                  refund_amount = final_price * 0.5
              
@@ -385,7 +385,7 @@
  
 </pre><h3>Mutant 60</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -59,7 +59,7 @@
+@@ -47,7 +47,7 @@
              else:
                  refund_amount = final_price * 0.5
              
@@ -396,7 +396,7 @@
  
 </pre><h3>Mutant 61</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -59,7 +59,7 @@
+@@ -47,7 +47,7 @@
              else:
                  refund_amount = final_price * 0.5
              
@@ -405,15 +405,26 @@
              
          confirmation = True
  
-</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 26</h3><pre>--- src/flight/FlightBookingSystem.py
+</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 28</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
-@@ -33,7 +33,7 @@
+@@ -26,7 +26,7 @@
          final_price = current_price * price_factor * passengers
  
-         # Taxa de última hora
--        time_difference = departure_time - booking_time
-+        time_difference = departure_time + booking_time
-         hours_to_departure = time_difference.total_seconds() / 3600
+         time_difference = departure_time - booking_time
+-        hours_to_departure = time_difference.total_seconds() / 3600
++        hours_to_departure = time_difference.total_seconds() * 3600
          
          if hours_to_departure < 24:
+             final_price += 100
+</pre><h3>Mutant 55</h3><pre>--- src/flight/FlightBookingSystem.py
++++ src/flight/FlightBookingSystem.py
+@@ -43,7 +43,7 @@
+ 
+         if is_cancellation:
+             if hours_to_departure >= 48:
+-                refund_amount = final_price
++                refund_amount = None
+             else:
+                 refund_amount = final_price * 0.5
+             
 </pre></body></html>
