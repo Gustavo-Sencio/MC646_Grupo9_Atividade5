@@ -3,7 +3,7 @@ from src.energy.EnergyManagementResult import EnergyManagementResult
 
 def test_energy_management_result_integrity():
     """
-    Testa a inicialização e a representação string (repr) da classe EnergyManagementResult.
+    Testa a inicialização e a representação string da classe EnergyManagementResult.
     """
     
     expected_status = "Standby"

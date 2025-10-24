@@ -1,12 +1,12 @@
-<html><body><h1>src/energy/EnergyManagementResult.py</h1>Killed 7 out of 8 mutants<h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 2</h3><pre>--- src/energy/EnergyManagementResult.py
+<html><body><h1>src/energy/EnergyManagementResult.py</h1>Killed 7 out of 8 mutants<h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 4</h3><pre>--- src/energy/EnergyManagementResult.py
 +++ src/energy/EnergyManagementResult.py
-@@ -7,7 +7,7 @@
-         total_energy_used: float,
-     ):
+@@ -9,7 +9,7 @@
          self.device_status = device_status
--        self.energy_saving_mode = energy_saving_mode
-+        self.energy_saving_mode = None
+         self.energy_saving_mode = energy_saving_mode
          self.temperature_regulation_active = temperature_regulation_active
-         self.total_energy_used = total_energy_used
+-        self.total_energy_used = total_energy_used
++        self.total_energy_used = None
  
+     def __repr__(self) -> str:
+         return (f"EnergyManagementResult(device_status={self.device_status}, "
 </pre></body></html>
