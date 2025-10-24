@@ -7,5 +7,6 @@ src.egg-info/dependency_links.txt
 src.egg-info/requires.txt
 src.egg-info/top_level.txt
 tests/test_device_schedule.py
+tests/test_energy.py
 tests/test_flight.py
 tests/test_fraud.py

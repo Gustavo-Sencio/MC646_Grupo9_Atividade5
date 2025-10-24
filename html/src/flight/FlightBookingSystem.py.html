@@ -1,4 +1,4 @@
-<html><body><h1>src/flight/FlightBookingSystem.py</h1>Killed 17 out of 55 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 9</h3><pre>--- src/flight/FlightBookingSystem.py
+<html><body><h1>src/flight/FlightBookingSystem.py</h1>Killed 15 out of 55 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 9</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
 @@ -14,7 +14,7 @@
                      reward_points_available: int
@@ -405,7 +405,29 @@
              
          confirmation = True
  
-</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 58</h3><pre>--- src/flight/FlightBookingSystem.py
+</pre><h2>Suspicious</h2>Mutants that made the test suite take longer, but otherwise seemed ok<h3>Mutant 11</h3><pre>--- src/flight/FlightBookingSystem.py
++++ src/flight/FlightBookingSystem.py
+@@ -15,7 +15,7 @@
+                 ) -> BookingResult:
+ 
+         final_price = 0.0
+-        refund_amount = 0.0
++        refund_amount = 1.0
+         confirmation = False
+         points_used = False
+ 
+</pre><h3>Mutant 23</h3><pre>--- src/flight/FlightBookingSystem.py
++++ src/flight/FlightBookingSystem.py
+@@ -23,7 +23,7 @@
+             return BookingResult(confirmation, final_price, refund_amount, points_used)
+ 
+         price_factor = (previous_sales / 100.0) * 0.8
+-        final_price = current_price * price_factor * passengers
++        final_price = current_price / price_factor * passengers
+ 
+         time_difference = departure_time - booking_time
+         hours_to_departure = time_difference.total_seconds() / 3600
+</pre><h3>Mutant 58</h3><pre>--- src/flight/FlightBookingSystem.py
 +++ src/flight/FlightBookingSystem.py
 @@ -45,7 +45,7 @@
              if hours_to_departure >= 48:

@@ -1,4 +1,4 @@
-<html><body><h1>src/fraud/FraudDetectionSystem.py</h1>Killed 45 out of 60 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 68</h3><pre>--- src/fraud/FraudDetectionSystem.py
+<html><body><h1>src/fraud/FraudDetectionSystem.py</h1>Killed 43 out of 60 mutants<h2>Survived</h2>Survived mutation testing. These mutants show holes in your test suite.<h3>Mutant 68</h3><pre>--- src/fraud/FraudDetectionSystem.py
 +++ src/fraud/FraudDetectionSystem.py
 @@ -11,7 +11,7 @@
      ) -> FraudCheckResult:
@@ -152,15 +152,37 @@
              if time_diff_minutes <= 60:
                  recent_transaction_count += 1
          
-</pre><h3>Mutant 117</h3><pre>--- src/fraud/FraudDetectionSystem.py
+</pre><h3>Mutant 96</h3><pre>--- src/fraud/FraudDetectionSystem.py
 +++ src/fraud/FraudDetectionSystem.py
-@@ -38,7 +38,7 @@
+@@ -27,7 +27,7 @@
+                 recent_transaction_count += 1
+         
+         if recent_transaction_count > 10:
+-            is_blocked = True
++            is_blocked = None
+             risk_score += 30
+ 
+         if previous_transactions:
+</pre><h3>Mutant 105</h3><pre>--- src/fraud/FraudDetectionSystem.py
++++ src/fraud/FraudDetectionSystem.py
+@@ -33,7 +33,7 @@
+         if previous_transactions:
+             last_transaction = previous_transactions[-1]
+             time_since_last = current_transaction.timestamp - last_transaction.timestamp
+-            minutes_since_last = time_since_last.total_seconds() / 60
++            minutes_since_last = time_since_last.total_seconds() * 60
+             
              if minutes_since_last < 30 and last_transaction.location != current_transaction.location:
                  is_fraudulent = True
-                 verification_required = True
--                risk_score += 20
-+                risk_score -= 20
+</pre><h3>Mutant 115</h3><pre>--- src/fraud/FraudDetectionSystem.py
++++ src/fraud/FraudDetectionSystem.py
+@@ -37,7 +37,7 @@
+             
+             if minutes_since_last < 30 and last_transaction.location != current_transaction.location:
+                 is_fraudulent = True
+-                verification_required = True
++                verification_required = None
+                 risk_score += 20
  
          if current_transaction.location in blacklisted_locations:
-             is_blocked = True
 </pre></body></html>
